@@ -1,0 +1,375 @@
+---
+const projects = [
+  {
+    id: "-0Nq82nxPNM",
+    url: "https://youtu.be/-0Nq82nxPNM?si=Xu2jrqm6jI0VVAQl",
+  },
+  {
+    id: "CZgysXeL-x0",
+    url: "https://youtu.be/CZgysXeL-x0?si=SPEeDy3Y26Ni0ZC7",
+  },
+  {
+    id: "dPefLag-hgw",
+    url: "https://youtu.be/dPefLag-hgw?si=O61s6yxBmTUbIIL2",
+  },
+  {
+    id: "SopYTl4BWWY",
+    url: "https://youtu.be/SopYTl4BWWY?si=j8UzzzDBuS9GNvos",
+  },
+  {
+    id: "P12uU3yLQg0",
+    url: "https://youtu.be/P12uU3yLQg0?si=ZMKXOiby4C13dfgW",
+  },
+
+  {
+    id: "kUdHG_E_gIw",
+    url: "https://youtu.be/kUdHG_E_gIw?si=Va-v4wY7QEVp2G3n",
+  },
+  {
+    id: "q1NWL7-ofzk",
+    url: "https://youtu.be/q1NWL7-ofzk?si=k0LaNL7eJDVjp1cU",
+  },
+];
+---
+
+<section class="projects section" id="proyectos">
+  <div class="container">
+    <div class="projects-header">
+      <h2 class="section-title">Nuestros Proyectos</h2>
+      <p class="projects-subtitle">
+        Escucha algunas de las canciones que hemos tenido el privilegio de
+        producir junto a artistas que buscan glorificar a Dios.
+      </p>
+    </div>
+
+    <div class="carousel-wrapper">
+      <button class="carousel-btn carousel-btn-prev" aria-label="Anterior">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+      </button>
+
+      <div class="carousel-track">
+        {
+          projects.map((project) => (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-card"
+            >
+              <div class="project-thumbnail">
+                <img
+                  src={`https://img.youtube.com/vi/${project.id}/hqdefault.jpg`}
+                  alt="Video thumbnail"
+                  loading="lazy"
+                />
+                <div class="play-overlay">
+                  <svg
+                    class="play-icon"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+
+      <button class="carousel-btn carousel-btn-next" aria-label="Siguiente">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M9 18l6-6-6-6"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="carousel-dots">
+      {
+        projects.map((_, index) => (
+          <button
+            class="carousel-dot"
+            data-index={index}
+            aria-label={`Ir al video ${index + 1}`}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    background-color: var(--color-background);
+  }
+
+  .projects-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .projects-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0.5rem 0;
+  }
+
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project-card {
+    flex: 0 0 calc((100% - 3rem) / 3);
+    scroll-snap-align: start;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    text-decoration: none;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .project-thumbnail {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .project-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover .project-thumbnail img {
+    transform: scale(1.05);
+  }
+
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .project-card:hover .play-overlay {
+    opacity: 1;
+  }
+
+  .play-icon {
+    width: 64px;
+    height: 64px;
+    color: white;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+  }
+
+  .carousel-btn {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-white);
+    color: var(--color-text-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .carousel-btn:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .carousel-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-text-light);
+    opacity: 0.3;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-dot.active {
+    opacity: 1;
+    background: var(--color-primary);
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 768px) {
+    .project-card {
+      flex: 0 0 100%;
+    }
+
+    .carousel-btn {
+      display: none;
+    }
+
+    .play-overlay {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-track {
+      gap: 1rem;
+    }
+  }
+</style>
+
+<script>
+  const track = document.querySelector(".carousel-track") as HTMLElement;
+  const prevBtn = document.querySelector(
+    ".carousel-btn-prev",
+  ) as HTMLButtonElement;
+  const nextBtn = document.querySelector(
+    ".carousel-btn-next",
+  ) as HTMLButtonElement;
+  const dots = document.querySelectorAll(
+    ".carousel-dot",
+  ) as NodeListOf<HTMLButtonElement>;
+  const cards = document.querySelectorAll(
+    ".project-card",
+  ) as NodeListOf<HTMLElement>;
+
+  function getVisibleCount() {
+    return window.innerWidth <= 768 ? 1 : 3;
+  }
+
+  function getCardWidth() {
+    if (cards.length === 0) return 0;
+    const gap = window.innerWidth <= 768 ? 16 : 24;
+    return cards[0].offsetWidth + gap;
+  }
+
+  function getCurrentIndex() {
+    const cardWidth = getCardWidth();
+    if (cardWidth === 0) return 0;
+    return Math.round(track.scrollLeft / cardWidth);
+  }
+
+  function updateDots() {
+    const currentIndex = getCurrentIndex();
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentIndex);
+    });
+  }
+
+  function updateButtons() {
+    const currentIndex = getCurrentIndex();
+    const maxIndex = cards.length - getVisibleCount();
+    prevBtn.disabled = currentIndex <= 0;
+    nextBtn.disabled = currentIndex >= maxIndex;
+  }
+
+  function scrollToIndex(index: number) {
+    const cardWidth = getCardWidth();
+    track.scrollTo({ left: index * cardWidth, behavior: "smooth" });
+  }
+
+  prevBtn.addEventListener("click", () => {
+    const currentIndex = getCurrentIndex();
+    if (currentIndex > 0) {
+      scrollToIndex(currentIndex - 1);
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    const currentIndex = getCurrentIndex();
+    const maxIndex = cards.length - getVisibleCount();
+    if (currentIndex < maxIndex) {
+      scrollToIndex(currentIndex + 1);
+    }
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      scrollToIndex(index);
+    });
+  });
+
+  track.addEventListener("scroll", () => {
+    updateDots();
+    updateButtons();
+  });
+
+  window.addEventListener("resize", () => {
+    updateDots();
+    updateButtons();
+  });
+
+  // Initial state
+  updateDots();
+  updateButtons();
+</script>
