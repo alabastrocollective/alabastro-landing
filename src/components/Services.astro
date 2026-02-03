@@ -1,0 +1,106 @@
+---
+const services = [
+  {
+    icon: '🎵',
+    title: 'Composición y songwriting',
+    description: 'Te ayudamos a escribir letras y melodías que comuniquen verdad, profundidad y propósito.'
+  },
+  {
+    icon: '🎹',
+    title: 'Arreglos y producción',
+    description: 'Construimos el sonido de tu canción: instrumentación, estructura, estilo y dirección musical.'
+  },
+  {
+    icon: '🎙️',
+    title: 'Grabación, mezcla y master',
+    description: 'Grabación de voces e instrumentos, mezcla profesional y master final listo para plataformas digitales.'
+  }
+];
+---
+
+<section class="services section" id="servicios">
+  <div class="container">
+    <div class="services-header">
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <p class="services-subtitle">
+        No importa en qué etapa te encuentres. Si ya tienes una canción escrita o solo una idea, 
+        en Alabastro Collective nos adaptamos a tu necesidad y caminamos contigo en cada paso.
+      </p>
+    </div>
+    
+    <div class="services-grid">
+      {services.map(service => (
+        <div class="service-card">
+          <div class="service-icon">{service.icon}</div>
+          <h3 class="service-title">{service.title}</h3>
+          <p class="service-description">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background-color: var(--color-white);
+  }
+
+  .services-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .services-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    background-color: var(--color-background);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .service-description {
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

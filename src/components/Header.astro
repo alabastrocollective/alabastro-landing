@@ -1,0 +1,144 @@
+---
+---
+
+<header class="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="#inicio" class="logo">
+        <img src="/LOGO_ALABASTRO.svg" alt="Alabastro Collective" />
+      </a>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#paquetes">Paquetes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    background-color: var(--color-background);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo:hover {
+    opacity: 0.8;
+  }
+
+  .logo img {
+    height: 50px;
+    width: auto;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-menu a {
+    color: var(--color-text-dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+  }
+
+  .nav-menu a:hover {
+    color: var(--color-primary);
+  }
+
+  .nav-menu a:hover::after {
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    padding: 0.5rem;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-text-dark);
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu {
+      position: fixed;
+      top: 80px;
+      right: -100%;
+      flex-direction: column;
+      background-color: var(--color-background);
+      width: 250px;
+      padding: 2rem;
+      gap: 1.5rem;
+      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+      transition: right 0.3s ease;
+    }
+
+    .nav-menu.active {
+      right: 0;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
+
+  menuToggle?.addEventListener('click', () => {
+    navMenu?.classList.toggle('active');
+  });
+
+  // Cerrar menú al hacer click en un link
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu?.classList.remove('active');
+    });
+  });
+</script>

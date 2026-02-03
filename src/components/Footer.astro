@@ -1,0 +1,141 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <img src="/LOGO_ALABASTRO_LIGHT.svg" alt="Alabastro Collective" />
+        </div>
+        <p class="footer-tagline">Creative Worship Studio</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#paquetes">Paquetes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="tel:+915131933">915 131 933</a></li>
+            <li><a href="mailto:contacto@alabastrocollective.com">contacto@alabastrocollective.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Servicios</h4>
+          <ul>
+            <li>Composición</li>
+            <li>Arreglos</li>
+            <li>Grabación</li>
+            <li>Mezcla y Master</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} Alabastro Collective. Todos los derechos reservados.</p>
+      <p class="footer-credits">Diseñado con ♥ para la gloria de Dios</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-text-dark);
+    color: var(--color-white);
+    padding: 4rem 0 2rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .logo img {
+    height: 60px;
+    width: auto;
+  }
+
+  .footer-tagline {
+    color: var(--color-white);
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-column h4 {
+    color: var(--color-white);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .footer-column ul {
+    list-style: none;
+  }
+
+  .footer-column li {
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-column a {
+    color: var(--color-white);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .footer-column a:hover {
+    opacity: 1;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    color: var(--color-white);
+    opacity: 0.6;
+  }
+
+  .footer-bottom p {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-credits {
+    font-style: italic;
+  }
+
+  @media (max-width: 968px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-links {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

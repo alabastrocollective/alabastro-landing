@@ -1,0 +1,115 @@
+---
+---
+
+<section class="message section">
+  <div class="container">
+    <div class="message-grid">
+      <div class="message-content">
+        <h2 class="section-title">Mensaje de Alabastro</h2>
+        <p class="message-text">
+          En Alabastro Collective creemos que cada canción nace con un propósito. 
+          Nuestro llamado es acompañar a artistas y grupos cristianos en todo el 
+          proceso creativo, desde la idea inicial hasta una producción profesional 
+          que refleje excelencia y fe.
+        </p>
+        <p class="message-text">
+          Gracias por confiar en nosotros para dar forma a lo que Dios ha puesto 
+          en tu corazón.
+        </p>
+      </div>
+      <div class="message-highlight">
+        <h3>Lo que hacemos</h3>
+        <div class="highlight-item">
+          <span class="number">01</span>
+          <div>
+            <h4>Producción Musical Integral</h4>
+            <p>Desarrollamos tu canción con un estándar profesional, cuidando tanto lo musical como el mensaje.</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <span class="number">02</span>
+          <div>
+            <h4>Acompañamiento Personalizado</h4>
+            <p>Trabajamos con artistas y grupos pequeños, brindando una experiencia cercana y flexible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .message {
+    background-color: var(--color-background);
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: 2rem;
+  }
+
+  .message-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .message-text {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .message-highlight {
+    background-color: var(--color-primary);
+    padding: 3rem;
+    border-radius: 1.5rem;
+    color: var(--color-white);
+  }
+
+  .message-highlight h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--color-white);
+  }
+
+  .highlight-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .highlight-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-white);
+    opacity: 0.7;
+    font-family: var(--font-display);
+  }
+
+  .highlight-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-white);
+  }
+
+  .highlight-item p {
+    color: var(--color-white);
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 968px) {
+    .message-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>
